@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 git add .
 git commit -m "updates of website"
-git push -u origin main# Oar
+git push -u origin
