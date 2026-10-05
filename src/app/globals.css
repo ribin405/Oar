@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand colors — Part 13.2 of the strategy doc */
+  --color-midnight: #071521;
+  --color-navy: #0b2233;
+  --color-marine: #0b607d;
+  --color-ocean: #0a7ea4;
+  --color-signal: #27b8d6;
+
+  --color-off-white: #f5f7f8;
+  --color-slate: #647481;
+  --color-ink: #10212b;
+  --color-border: #d9e1e5;
+
+  /* Typography */
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion timing shared by interactive components */
+  --ease-oar: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--color-off-white);
+  --foreground: var(--color-ink);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-ocean);
+  color: #ffffff;
+}
+
+.mdx-content {
+  color: var(--color-slate);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.mdx-content > * + * {
+  margin-top: 1.25em;
+}
+
+.mdx-content h2 {
+  margin-top: 2em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.mdx-content h3 {
+  margin-top: 1.75em;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  padding-left: 1.25em;
+}
+
+.mdx-content ul {
+  list-style: disc;
+}
+
+.mdx-content ol {
+  list-style: decimal;
+}
+
+.mdx-content a {
+  color: var(--color-ocean);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mdx-content strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
